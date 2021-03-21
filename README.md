@@ -152,6 +152,7 @@ General:
 Sample
 * Request: 
 ```curl http://127.0.0.1:5000/questions```
+
 * Response:
 ```json 
   "categories": {
@@ -253,7 +254,7 @@ Sample Search:
   --data '{"searchTerm":"title"}' \
   http://127.0.0.1:5000/questions 
 ```
-  
+
 * Response:
 ```json
   "categories": {
@@ -284,13 +285,15 @@ Sample Search:
   "total_questions": 2
 }
 ```
-Sample New question: 
+
+Sample New question:
+```
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"question":"test question", "answer":"test answer","difficulty":"1","category":"3"}' \
   http://127.0.0.1:5000/questions 
 * Request
-``` ```
+```
 * Response:
 ```json
 {
@@ -312,6 +315,7 @@ curl --header "Content-Type: application/json" \
 --request DELETE \
 http://127.0.0.1:5000/questions/26
 ```
+
 * Response:
 ```json
 {
@@ -328,6 +332,7 @@ General:
 Sample:
 * Request
 ```curl http://127.0.0.1:5000/categories/1/questions```
+
 * Response:
 ```json
 {
@@ -396,6 +401,7 @@ Sample:
   --data '{"previous_questions":[],"quiz_category":{"type":"Science","id":"1"}}' \
   http://127.0.0.1:5000/quizzes 
 ```
+
 * Response:
 ```json
 {
