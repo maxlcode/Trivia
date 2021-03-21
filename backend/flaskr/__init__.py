@@ -59,8 +59,8 @@ def create_app(test_config=None):
   # REST ENDPOINT GET - Questions with pagination 
   @app.route('/questions', methods=['GET'])
   def retrieve_questions():
-    selection = Question.query.order_by(Question.id).all()
-    current_questions = paginate_questions(request, selection)
+    questions = Question.query.order_by(Question.id).all()
+    current_questions = paginate_questions(request, questions)
     current_category  = request.args.get('categories', None, type=int)
 
     # Get categories
@@ -77,7 +77,7 @@ def create_app(test_config=None):
     return jsonify({
       'success': True,
       'questions': current_questions,
-      'total_questions':len(current_questions),
+      'total_questions':len(questions),
       'categories': dict_categories,
       'current_category' : None
     })
