@@ -7,6 +7,10 @@ WTF_CSRF_ENABLED = False
 DEBUG = True
 
 # Connect to the database
-SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:0000@localhost:5432/trivia'
+DB_HOST = os.getenv('DB_HOST', 'localhost:5432')  
+DB_USER = os.getenv('DB_USER', 'postgres')  
+DB_PASSWORD = os.getenv('DB_PASSWORD', '0000')  
+DB_NAME = os.getenv('DB_NAME', 'trivia')  
+SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}/{}'.format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME)
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 

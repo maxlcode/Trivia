@@ -99,7 +99,8 @@ def create_app(test_config=None):
         'deleted': question_id,
       })
 
-    except:
+    except Exception as e:
+      print(e)
       abort(422)
 
   # REST ENDPOINT: POST New question or search for question
@@ -131,7 +132,8 @@ def create_app(test_config=None):
         'created': question.id,
       })
 
-    except:
+    except Exception as e:
+      print(e)
       abort(422)
   
   # Search for questions
